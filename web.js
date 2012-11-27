@@ -96,7 +96,39 @@ app.post('/neighbor', function(req, res){
 		neighborNumber.push(from);
 		
 	console.log(neighborNumber)
+	
+	switch(to) {
+	case '+16464612494':
+	console.log("building 1");
+		if( body == 'I want to help' || 'yes' ){
+			message = "Thanks for registering with Building 1.  How are you willing to help? A)EMERGENCIES B)CHORES/LABOR C)SOCIAL Choose all that apply.";
+		} else if(body == 'a' || 'A' || 'EMERGENCIES' || 'A)EMERGENCIES' || 'emergencies' || 'a)emergencies') {
+			message = "Thanks for helping with EMERGENCIES.  We will send a text when a neighbor is in need of help or text your needs to this number."; 
+		} else if (body == 'b' || 'B' || 'CHORES/LABOR' || 'B)CHORES/LABOR' || 'chores/labor' || 'b)chores/labor' || 'chores' || 'labor') {
+			message = "Thanks for helping with CHORES/LABOR.  We will send a text when a neighbor is in need of help or text your needs to this number.";
+		} else if (body == 'c' || 'C' || 'SOCIAL' || 'social' || 'C)SOCIAL' || 'c)social'){
+			message = "Thanks for being SOCIAL.  We will send a text when a neighbor is in need or text your needs to this number.";
+		} else { 
+			message = "To register, text 'I want to help.' to 1-646-461-2494";
+		}
+	break;
+	case '+16464612588':
+	console.log("building 2");
+	break;
+	case '+16464612530':
+	console.log("building 2");
+	break;
+	case '+16464309891':
+	console.log("building 4");
+	break;
+	case '+16464025754':
+	console.log("building 5");
+	break
+	default:
+	console.log("defaul");
+	}
 
+/*
 
 	if(to == '+16464612494'){
 		if( body == 'I want to help' || 'yes' ){
@@ -121,6 +153,7 @@ app.post('/neighbor', function(req, res){
 	} else {
 		message = "Thanks for registering.";
 	}
+*/
 	console.log(message);
 	// Registration Function:
 	// Start with: 'I want to help"
