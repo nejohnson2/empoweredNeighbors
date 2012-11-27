@@ -6,6 +6,8 @@ var schema = mongoose.Schema;
 
 var app = express.createServer(express.logger());
 
+var neighborNumber = [];
+
 // Twilio
 var Twilio = require('twilio-js');
 Twilio.AccountSid = "ACad716cc4da934be6ad19bf5353312248";
@@ -18,8 +20,6 @@ require('./models').configureSchema(schema, mongoose);
 
 var SMS = mongoose.model('SMS');
 var Neighbor = mongoose.model('Neighbor');
-
-var neighborNumber = [];
 
 /*********** End Database CONFIGURATION *****************/ 
     
@@ -63,7 +63,7 @@ app.get('/', function(request, response) {
 
 app.get('/neighbor', function(req, res){
 
-
+	// This is a form to imitate information from an SMS
 	res.send('<form method="POST" action="/neighbor">' +
 					'Body: <input type="text" name="Body" />' +	
 					'who is it going to: <input type="text" name="From" />' +	
@@ -96,8 +96,6 @@ app.post('/neighbor', function(req, res){
 		neighborNumber.push(from);
 		
 	console.log(neighborNumber)
-
-
 
 
 	if(to == '+16464612494'){
@@ -162,28 +160,6 @@ app.post('/neighbor', function(req, res){
 	
 	res.redirect('/entry')
 
-
-/*
-	 // received twilio
-	var from = req.body.From;
-	var to = req.body.To;
-	var body = req.body.Body;
-
-  
-	var newNeighbor = {
-	  from: req.body.To,
-	  body: req.body.Body,
-	  to: 	req.body.From
-	};
-  
-	var Neighbor = new Neighbor(newNeighbor);
-	Neighbor.save();
-	 
-	 
-	var twiml = '<?xml version="1.0" encoding="UTF-8" ?><Response>n<Sms>Thanks for signing up!  What would you like to help with? A) Emergencies, B) Around the House, C) Socializing, D) Pet Walking.</Sms>n</Response>';
-
-    res.send(twiml, {'Content-Type':'text/xml'}, 200);
-*/
 });
 
 app.get('/entry', function(req, res) {
