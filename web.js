@@ -102,10 +102,9 @@ app.post('/neighbor', function(req, res){
 	case '+16464612494':
 	console.log("building 1");
 		if( body == 'I want to help' || body == 'yes' ){
-			//message = "Thanks for registering with Building 1.  How are you willing to help? A)EMERGENCIES B)CHORES/LABOR C)SOCIAL Choose all that apply.";
-			message = "test";
+			message = "Thanks for registering with Building 1.  How are you willing to help? A)EMERGENCIES B)CHORES/LABOR C)SOCIAL Choose all that apply.";
 		} else if(body == 'a' || body == 'A' || body == 'EMERGENCIES' || body == 'A)EMERGENCIES' || body == 'emergencies' || body == 'a)emergencies') {
-			message = "Thanks for helping with EMERGENCIES.  We will send a text when a neighbor is in need of help or text your needs to this number."; 
+			message = "Thanks for helping with EMERGENCIES.  We will send a text when a neighbor is in need of help or text your needs to 1-646-461-2494."; 
 		} else if (body == 'b' || body == 'B' || body == 'CHORES/LABOR' || body == 'B)CHORES/LABOR' || body == 'chores/labor' || body == 'b)chores/labor' || body == 'chores' || body == 'labor') {
 			message = "Thanks for helping with CHORES/LABOR.  We will send a text when a neighbor is in need of help or text your needs to this number.";
 		} else if (body == 'c' || body == 'C' || body == 'SOCIAL' || body == 'social' || body == 'C)SOCIAL' || body == 'c)social'){
