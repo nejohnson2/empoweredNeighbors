@@ -89,6 +89,7 @@ app.post('/neighbor', function(req, res){
 	
 	console.log('To : ' + to)
 	console.log('From : ' + from)
+	console.log('Body : ' + body)
 	//Twilio Numbers: Building 1 : 16464612494, Building 2 : 16464612588, Building 3 : 16464612530
 	// Building 4 : 16464309891, Building 5 : 16464025754,
 
@@ -96,17 +97,18 @@ app.post('/neighbor', function(req, res){
 		neighborNumber.push(from);
 		
 	console.log(neighborNumber)
-	
+
 	switch(to) {
 	case '+16464612494':
 	console.log("building 1");
-		if( body == 'I want to help' || 'yes' ){
-			message = "Thanks for registering with Building 1.  How are you willing to help? A)EMERGENCIES B)CHORES/LABOR C)SOCIAL Choose all that apply.";
-		} else if(body == 'a' || 'A' || 'EMERGENCIES' || 'A)EMERGENCIES' || 'emergencies' || 'a)emergencies') {
+		if( body == 'I want to help' || body == 'yes' ){
+			//message = "Thanks for registering with Building 1.  How are you willing to help? A)EMERGENCIES B)CHORES/LABOR C)SOCIAL Choose all that apply.";
+			message = "test";
+		} else if(body == 'a' || body == 'A' || body == 'EMERGENCIES' || body == 'A)EMERGENCIES' || body == 'emergencies' || body == 'a)emergencies') {
 			message = "Thanks for helping with EMERGENCIES.  We will send a text when a neighbor is in need of help or text your needs to this number."; 
-		} else if (body == 'b' || 'B' || 'CHORES/LABOR' || 'B)CHORES/LABOR' || 'chores/labor' || 'b)chores/labor' || 'chores' || 'labor') {
+		} else if (body == 'b' || body == 'B' || body == 'CHORES/LABOR' || body == 'B)CHORES/LABOR' || body == 'chores/labor' || body == 'b)chores/labor' || body == 'chores' || body == 'labor') {
 			message = "Thanks for helping with CHORES/LABOR.  We will send a text when a neighbor is in need of help or text your needs to this number.";
-		} else if (body == 'c' || 'C' || 'SOCIAL' || 'social' || 'C)SOCIAL' || 'c)social'){
+		} else if (body == 'c' || body == 'C' || body == 'SOCIAL' || body == 'social' || body == 'C)SOCIAL' || body == 'c)social'){
 			message = "Thanks for being SOCIAL.  We will send a text when a neighbor is in need or text your needs to this number.";
 		} else { 
 			message = "To register, text 'I want to help.' to 1-646-461-2494";
