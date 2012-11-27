@@ -1,5 +1,7 @@
 var express = require('express');
 var mongoose = require('mongoose');
+var ejs = require('ejs');
+
 var schema = mongoose.Schema;
 
 var app = express.createServer(express.logger());
@@ -56,7 +58,7 @@ app.configure(function() {
 });
 
 app.get('/', function(request, response) {
-  response.send('Hello Neighbors');
+  response.render('layout.html');
 });
 
 app.get('/neighbor', function(req, res){
@@ -158,7 +160,7 @@ app.post('/neighbor', function(req, res){
 	neighbor.body = body;
 	neighbor.save();
 	
-	res.redirect('/neighbor/' + neighbor.from)
+	res.redirect('/entry')
 
 
 /*
@@ -184,6 +186,22 @@ app.post('/neighbor', function(req, res){
 */
 });
 
+app.get('/entry', function(req, res) {
+
+	var query = Neighbor.find({});
+	//query.sort('date', -1); //sort by date in decending order
+	
+	query.exec({}, function(err, allNeighbors){
+		
+		//prepare template data
+		templateData = {
+			neighbor : allNeighbors
+		};
+		
+	res.send(templateData);
+	
+	});
+});
 
 var port = process.env.PORT || 3000;
 app.listen(port, function() {
