@@ -4,6 +4,7 @@
   "dependencies": {
     "express": "2.5.6",
     "mongoose" : "latest",
+    "ejs" : "latest",
     "twilio-js" : "latest"
   },
     "engines": {
