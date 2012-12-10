@@ -1,0 +1,28 @@
+
+<div class="btn-group">
+  <button id="buildingBtn1" class="btn">Building 1</button>
+  <button id="buildingBtn2" class="btn">Building 2</button>
+  <button id="buildingBtn3" class="btn">Building 3</button>
+  <button id="buildingBtn4" class="btn">Building 4</button>
+  <button id="buildingBtn5" class="btn">Building 5</button>    
+</div>
+
+<% for(i=0; i<Neighbor.length; i++) { %>
+	<div class="row">
+	
+	    <div class="span12">
+	
+	        <h2><a href="/viewSingleNeighbor/<%= Neighbor[i].number %>">From : <%= Neighbor[i].number %></a></h2>
+	        
+	        <p>
+	            Body : <%= Neighbor[i].body %>
+	        </p>
+	        <p>
+	        	To : <%= Neighbor[i].to %>
+	        </p>
+	        
+	        <hr />
+	    </div>
+	</div>
+
+<% } %>

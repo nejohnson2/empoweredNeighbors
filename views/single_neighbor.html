@@ -1,0 +1,18 @@
+<% for(i=0; i<Neighbor.length; i++) { %>
+<div class="row">
+
+    <div class="span12">
+
+        <h2><%= Neighbor[i].number %></h2>
+    
+        <p>
+            Body : <%= Neighbor[i].body %>
+        </p>
+        <p>
+        	To : <%= Neighbor[i].to %>
+        </p>	
+        <p><a href="/deleteNeighbor/<%= Neighbor[i].number %>"> Delete Neighbor </a></p>	
+        <hr />
+    </div>
+</div>
+<% } %>
