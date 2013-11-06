@@ -14,8 +14,8 @@ var db = new DB.startup(process.env.MONGOLAB_URI);
 
 // Twilio
 var Twilio = require('twilio-js');
-Twilio.AccountSid = "ACad716cc4da934be6ad19bf5353312248";
-Twilio.AuthToken  = "3af91684fa2d040f587bf96955cffd82";
+Twilio.AccountSid = process.env.Twilio_AccountSid;
+Twilio.AuthToken  = process.env.Twilio_AuthToken;
 
 /*********** Database CONFIGURATION *****************/ 
 //app.db = mongoose.connect(process.env.MONGOLAB_URI);
@@ -41,9 +41,10 @@ app.configure(function() {
     app.set('port', process.env.PORT || 3000);
     app.set('view engine','ejs');  // use the EJS node module
     app.set('views',__dirname + '/views'); // use /views as template directory
-    app.set('view options',{layout:true}); // use /views/layout.html to manage your main header/footer wrapping template
+/*     app.set('view options',{layout:true}); // use /views/layout.html to manage your main header/footer wrapping template */
+    app.locals({layout:true});
     app.register('html',require('ejs')); //use .html files in /views
-
+    console.log('is this working');
     /******************************************************************
         The /static folder will hold all css, js and image assets.
         These files are static meaning they will not be used by
