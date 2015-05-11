@@ -2,8 +2,8 @@ var db = require('../accessDB');
 
 // Twilio
 var Twilio = require('twilio-js');
-Twilio.AccountSid = "ACad716cc4da934be6ad19bf5353312248";
-Twilio.AuthToken  = "3af91684fa2d040f587bf96955cffd82";
+Twilio.AccountSid = "XXXXXXXXXXXXX";
+Twilio.AuthToken  = "XXXXXXXXXXXXX";
 
 module.exports = {
 	
